@@ -4,23 +4,24 @@
   "description": "...",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "pnpm run clean && tsc",
+    "typecheck": "tsc --noEmit",
     "start": "node dist/index.js",
-    "dev": "ts-node -P tsconfig.json index.ts"
+    "dev": "ts-node -P tsconfig.json src/index.ts",
+    "clean": "rimraf dist"
   },
   "devDependencies": {
     "@types/cli-progress": "^3.11.5",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^8.0.0",
     "@types/node": "^20.12.7",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "@solana/spl-token": "<=0.4.1",
-    "@solana/spl-token-metadata": "<=0.1.2",
-    "@solana/web3.js": "<=1.91.4",
+    "@solana/spl-token": "0.4.1",
+    "@solana/web3.js": "1.91.4",
     "@staratlas/anchor": "0.25.1",
     "@staratlas/cargo": "1.0.4",
     "@staratlas/crafting": "1.0.4",
@@ -29,19 +30,13 @@
     "@staratlas/points": "1.0.4",
     "@staratlas/profile-faction": "0.4.1",
     "@staratlas/sage": "^1.2.0",
-    "bs58": "^5.0.0",
+    "bs58": "^6.0.0",
     "cli-progress": "^3.12.0",
+    "dotenv": "^16.4.5",
+    "effect": "^3.6.3",
     "fs-extra": "^11.2.0",
     "inquirer": "^8.0.0",
-    "semver": "^7.6.2",
-    "ts-pattern": "^5.2.0",
-    "undici": "^6.18.2"
-  },
-  "resolutions": {
-    "@solana/spl-token": "<=0.4.1",
-    "@solana/spl-token-metadata": "<=0.1.2",
-    "@solana/web3.js": "<=1.91.4",
-    "rpc-websockets": "7.11.0"
+    "ts-pattern": "^5.2.0"
   },
   "author": "meta_arion",
   "license": "ISC",
